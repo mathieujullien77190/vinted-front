@@ -1,7 +1,6 @@
 import { cn } from "../../helpers/cn";
 import { toPrice } from "../../helpers/formatters";
 import type { FullOfferProps } from "./types";
-import * as CSS from "../UI";
 import User from "../User";
 
 export const FullOffer = ({
@@ -31,7 +30,7 @@ export const FullOffer = ({
         <User {...user} format="big" />
         <button
           className={cn(
-            CSS.Button,
+            "button",
             "w-full text-white bg-lagoon-500 text-sm py-2 px-4",
           )}
         >

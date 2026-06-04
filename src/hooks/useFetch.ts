@@ -10,7 +10,6 @@ export const useFetch = <T>(fetcher: () => Promise<T>) => {
     const run = async () => {
       setIsLoading(true);
       setIsError(undefined);
-      setIsError(undefined);
       fetcher()
         .then((responseData) => {
           setIsLoaded(true);

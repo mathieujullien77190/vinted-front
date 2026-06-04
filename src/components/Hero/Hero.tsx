@@ -1,5 +1,4 @@
 import { cn } from "../../helpers/cn";
-import * as CSS from "../UI";
 
 export const Hero = () => {
   return (
@@ -16,7 +15,7 @@ export const Hero = () => {
         <h1 className="text-3xl">Prêts à faire du tri dans vos placards ?</h1>
         <button
           className={cn(
-            CSS.Button,
+            "button",
             "w-fit text-white bg-lagoon-500 text-sm py-2 px-4",
           )}
         >

@@ -1,3 +1,4 @@
+import { useCallback } from "react";
 import { FullOffer } from "../components/Offer/FullOffer";
 import { Wrapper } from "../components/Wrapper";
 import { HEIGHT_HEADER } from "../constants";
@@ -10,7 +11,9 @@ import { useParams } from "react-router-dom";
 export const Offer = () => {
   const { id } = useParams<{ id: string }>();
 
-  const { data } = useFetch<OfferType>(() => getOffer(id!));
+  const getOfferWithId = useCallback(() => getOffer(id!), [id]);
+
+  const { data } = useFetch<OfferType>(getOfferWithId);
 
   return (
     <div className={`bg-canvas h-[calc(100vh-${HEIGHT_HEADER}px)]`}>
