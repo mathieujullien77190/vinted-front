@@ -1,8 +1,8 @@
-import logo from "../../assets/logo.svg";
-import { cn } from "../../helpers/cn";
+import logo from "@/assets/logo.svg";
+import { cn } from "@/helpers/cn";
 import { Wrapper } from "../Wrapper";
 import { FaSearch } from "react-icons/fa";
-import { HEIGHT_HEADER, ROUTES } from "../../constants";
+import { HEIGHT_HEADER, ROUTES } from "@/constants";
 import { Link } from "react-router-dom";
 
 export const Header = () => {

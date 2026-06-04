@@ -1,11 +1,11 @@
 import { useCallback } from "react";
-import { FullOffer } from "../components/Offer/FullOffer";
-import { Wrapper } from "../components/Wrapper";
-import { HEIGHT_HEADER } from "../constants";
-import { formatFullOffer } from "../helpers/formatters";
-import { useFetch } from "../hooks/useFetch";
-import { getOffer } from "../services/getOffer";
-import type { Offer as OfferType } from "../types";
+import { FullOffer } from "@/components/Offer/FullOffer";
+import { Wrapper } from "@/components/Wrapper";
+import { HEIGHT_HEADER } from "@/constants";
+import { formatFullOffer } from "@/helpers/formatters";
+import { useFetch } from "@/hooks/useFetch";
+import { getOffer } from "@/services/getOffer";
+import type { Offer as OfferType } from "@/types";
 import { useParams } from "react-router-dom";
 
 export const Offer = () => {

@@ -1,5 +1,5 @@
 import axios from "axios";
-import type { OffersResponse } from "../types";
+import type { OffersResponse } from "@/types";
 
 export const getOffers = async (): Promise<OffersResponse> => {
   return axios

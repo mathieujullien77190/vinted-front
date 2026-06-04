@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import type { LightOfferProps } from "./types";
-import { ROUTES } from "../../constants";
-import { toPrice } from "../../helpers/formatters";
-import User from "../User";
+import { ROUTES } from "@/constants";
+import { toPrice } from "@/helpers/formatters";
+import User from "@/components/User";
 
 export const LightOffer = ({
   id,

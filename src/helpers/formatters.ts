@@ -1,6 +1,6 @@
-import { CLOUDINARY_BASE_PATH } from "../constants";
-import type { FullOffer, LightOffer } from "../components/Offer/types";
-import type { Offer } from "../types";
+import { CLOUDINARY_BASE_PATH } from "@/constants";
+import type { FullOffer, LightOffer } from "@/components/Offer/types";
+import type { Offer } from "@/types";
 
 export const formatLightOffer = (data: Offer): LightOffer => {
   return {

@@ -1,7 +1,7 @@
-import { cn } from "../../helpers/cn";
-import { toPrice } from "../../helpers/formatters";
+import { cn } from "@/helpers/cn";
+import { toPrice } from "@/helpers/formatters";
 import type { FullOfferProps } from "./types";
-import User from "../User";
+import User from "@/components/User";
 
 export const FullOffer = ({
   name,

@@ -1,4 +1,4 @@
-import type { LightOffer } from "../Offer/types";
+import type { LightOffer } from "@/Offer/types";
 
 export type ListOffersProps = {
   offers: LightOffer[];

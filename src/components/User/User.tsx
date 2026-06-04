@@ -1,4 +1,4 @@
-import { cn } from "../../helpers/cn";
+import { cn } from "@/helpers/cn";
 import type { UserProps } from "./types";
 
 export const User = ({ name, avatar, format }: UserProps) => {
