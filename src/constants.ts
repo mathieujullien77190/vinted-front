@@ -6,4 +6,8 @@ export const HEIGHT_HEADER = 68;
 export const ROUTES = {
   home: "/",
   offer: "/offers/:id",
+  signup: "/signup",
+  signin: "/signin",
 };
+
+export const BASE_PATH_API = "https://lereacteur-vinted-api.herokuapp.com";

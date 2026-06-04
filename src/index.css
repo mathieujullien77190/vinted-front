@@ -254,8 +254,6 @@
 
 /* ── Utilitaires custom ────────────────────────────────────────────────────── */
 
-/* Skeleton loader (shimmer) */
-
 @utility button {
   background-color: var(--color-lagoon-500);
   border-radius: var(--radius);
@@ -266,4 +264,8 @@
   border-style: var(--tw-border-style);
   border-width: 1px;
   cursor: pointer;
+}
+
+.input-form {
+  @apply border-b border-border-strong focus:border-border-focus focus:outline-none focus:ring-0 text-sm;
 }
