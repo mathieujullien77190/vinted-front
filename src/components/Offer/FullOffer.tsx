@@ -13,7 +13,11 @@ export const FullOffer = ({
 }: FullOfferProps) => {
   return (
     <article className="flex justify-between">
-      <img src={picture} alt={name} className="h-150 rounded" />
+      <img
+        src={picture}
+        alt={name}
+        className="h-150 max-w-1/2 rounded object-cover"
+      />
       <div className="flex flex-col bg-white p-8 w-105 gap-8 rounded">
         <div className="text-xl">{toPrice(price)}</div>
         <ul className="flex flex-col w-full">

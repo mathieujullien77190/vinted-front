@@ -24,6 +24,10 @@ export const Header = () => {
     setUsername(undefined);
   };
 
+  const handlePublish = () => {
+    navigate(ROUTES.publish);
+  };
+
   return (
     <Wrapper>
       <header
@@ -68,7 +72,10 @@ export const Header = () => {
           )}
         </div>
 
-        <button className={cn("button", "text-white bg-lagoon-500")}>
+        <button
+          className={cn("button", "text-white bg-lagoon-500")}
+          onClick={handlePublish}
+        >
           Vends tes articles
         </button>
       </header>

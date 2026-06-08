@@ -8,6 +8,7 @@ export const ROUTES = {
   offer: "/offers/:id",
   signup: "/signup",
   signin: "/signin",
+  publish: "/publish",
 };
 
 export const BASE_PATH_API = "https://lereacteur-vinted-api.herokuapp.com";

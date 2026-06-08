@@ -266,6 +266,24 @@
   cursor: pointer;
 }
 
+@utility publish-section {
+  > :last-child {
+    border: none;
+  }
+}
+
+.show-over .show {
+  display: none;
+}
+
+.show-over:hover .show {
+  display: block;
+}
+
+.publish-input {
+  @apply w-1/2 mx-4 border-b border-solid border-ink-light outline-none focus:outline-none focus:ring-0  focus:border-lagoon-400;
+}
+
 .input-form {
   @apply border-b border-border-strong focus:border-border-focus focus:outline-none focus:ring-0 text-sm;
 }

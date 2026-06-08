@@ -2,6 +2,10 @@ import Cookies from "js-cookie";
 
 export const getToken = () => Cookies.get("token");
 
+export const isAuth = (): boolean => {
+  return !!getToken();
+};
+
 export const setToken = (token: string) => {
   Cookies.set("token", token, { expires: 7 });
 };
