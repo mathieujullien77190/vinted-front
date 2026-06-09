@@ -24,7 +24,7 @@ export const Modal = ({
                 <RiCloseFill />
               </span>
             </div>
-            <div className="flex p-4 overflow-auto h-[calc(100vh-200px)] ">
+            <div className="flex p-4 overflow-auto h-[calc(100vh-200px)]">
               <div className="p-4 flex justify-center w-full">{children}</div>
             </div>
             {buttons && (

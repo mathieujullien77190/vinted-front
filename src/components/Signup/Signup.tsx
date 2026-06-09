@@ -2,9 +2,10 @@ import { ROUTES } from "@/constants";
 import { login } from "@/helpers/user";
 import { postSignup } from "@/services/postSignup";
 import { useState, type FormEvent } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const Signup = () => {
+  const navigate = useNavigate();
   const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -21,8 +22,7 @@ export const Signup = () => {
     postSignup({ email, password, username, newsletter })
       .then((response) => {
         login(response.account.username, response.token);
-
-        window.location.href = ROUTES.home;
+        navigate(ROUTES.home);
       })
       .catch((error) => {
         setError(error.message);

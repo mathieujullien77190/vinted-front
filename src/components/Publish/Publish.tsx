@@ -8,11 +8,14 @@ import { DropZone } from "./components/DropZone";
 import { postOffer } from "@/services/postOffer";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "@/constants";
+import { CONFIG } from "./constants";
+import { extractFieldProps } from "./helpers";
 
 export const Publish = () => {
   const navigate = useNavigate();
 
-  const [offer, setOffer] = useState<OfferToAdd>({});
+  const offerState = useState<OfferToAdd>({});
+  const [offer, setOffer] = offerState;
   const [error, setError] = useState<string>("");
 
   const handleAdd = (event: FormEvent<HTMLFormElement>) => {
@@ -41,7 +44,7 @@ export const Publish = () => {
       <Wrapper className="flex flex-col gap-4">
         <Section>
           <DropZone
-            label="Ajouter une ou plusieurs photo(s)"
+            label={CONFIG.pictures.label}
             name="pictures"
             files={offer?.pictures ?? []}
             onChange={(value) =>
@@ -50,90 +53,18 @@ export const Publish = () => {
           />
         </Section>
         <Section withCssRules>
-          <Field
-            name="title"
-            label="Titre"
-            placeholder="ex: Chemise Sézane verte"
-            value={offer?.title ?? ""}
-            type="text"
-            onChange={(value) => {
-              setOffer((prev) => ({ ...prev, title: value }));
-            }}
-          />
-          <Field
-            name="description"
-            label="Décris ton article"
-            placeholder="ex: porté quelquefois, taille correctement"
-            value={offer?.description ?? ""}
-            type="textarea"
-            onChange={(value) => {
-              setOffer((prev) => ({ ...prev, description: value }));
-            }}
-          />
+          <Field {...extractFieldProps("title", offerState)} />
+          <Field {...extractFieldProps("description", offerState)} />
         </Section>
         <Section withCssRules>
-          <Field
-            name="brand"
-            label="Marque"
-            placeholder="ex: Zara"
-            value={offer?.brand ?? ""}
-            type="text"
-            onChange={(value) => {
-              setOffer((prev) => ({ ...prev, brand: value }));
-            }}
-          />
-          <Field
-            name="size"
-            label="Taille"
-            placeholder="ex: L / 40 / 12"
-            value={offer?.size?.toString() ?? ""}
-            type="number"
-            onChange={(value) => {
-              setOffer((prev) => ({ ...prev, size: parseInt(value, 10) }));
-            }}
-          />
-          <Field
-            name="color"
-            label="Couleur"
-            placeholder="ex: Fushia"
-            value={offer?.color ?? ""}
-            type="text"
-            onChange={(value) => {
-              setOffer((prev) => ({ ...prev, color: value }));
-            }}
-          />
-          <Field
-            name="condition"
-            label="Etat"
-            placeholder="ex: Neuf avec étiquette"
-            value={offer?.condition ?? ""}
-            type="text"
-            onChange={(value) => {
-              setOffer((prev) => ({ ...prev, condition: value }));
-            }}
-          />
-          <Field
-            name="city"
-            label="Lieu"
-            placeholder="ex: Paris"
-            value={offer?.city ?? ""}
-            type="text"
-            onChange={(value) => {
-              setOffer((prev) => ({ ...prev, city: value }));
-            }}
-          />
+          <Field {...extractFieldProps("brand", offerState)} />
+          <Field {...extractFieldProps("size", offerState)} />
+          <Field {...extractFieldProps("color", offerState)} />
+          <Field {...extractFieldProps("condition", offerState)} />
+          <Field {...extractFieldProps("city", offerState)} />
         </Section>
         <Section withCssRules>
-          <Field
-            name="price"
-            label="Prix"
-            placeholder="10 €"
-            value={offer?.price?.toString() ?? ""}
-            type="number"
-            onChange={(value) => {
-              setOffer((prev) => ({ ...prev, price: parseInt(value, 10) }));
-            }}
-          />
+          <Field {...extractFieldProps("price", offerState)} />
         </Section>
 
         <div className="w-full flex justify-between">

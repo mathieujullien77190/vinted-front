@@ -2,6 +2,8 @@ export type FileWithPreview = File & {
   preview: string;
 };
 
+export type FieldType = "text" | "number" | "textarea" | "file";
+
 export type OfferToAdd = {
   title?: string;
   description?: string;
@@ -22,7 +24,7 @@ export type FieldProps = {
   label: string;
   name: string;
   value: string;
-  type: "text" | "number" | "textarea";
+  type: FieldType;
   placeholder: string;
   onChange: (value: string) => void;
 };

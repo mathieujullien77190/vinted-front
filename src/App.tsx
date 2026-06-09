@@ -8,18 +8,16 @@ import { Publish } from "./pages/Publish";
 
 import { ROUTES } from "./constants";
 
-const App = () => {
-  return (
-    <Router>
-      <Routes>
-        <Route path={ROUTES.home} element={<Home />} />
-        <Route path={ROUTES.offer} element={<Offer />} />
-        <Route path={ROUTES.signup} element={<Signup />} />
-        <Route path={ROUTES.signin} element={<Signin />} />
-        <Route path={ROUTES.publish} element={<Publish />} />
-      </Routes>
-    </Router>
-  );
-};
+const App = () => (
+  <Router>
+    <Routes>
+      <Route path={ROUTES.home} element={<Home />} />
+      <Route path={ROUTES.offer} element={<Offer />} />
+      <Route path={ROUTES.signup} element={<Signup />} />
+      <Route path={ROUTES.signin} element={<Signin />} />
+      <Route path={ROUTES.publish} element={<Publish />} />
+    </Routes>
+  </Router>
+);
 
 export default App;

@@ -1,17 +1,14 @@
-import { BASE_PATH_API } from "@/constants";
-import axios from "axios";
+import { api } from "./fetch";
 
-export const postPayment = async ({
-  title,
-  amount,
-}: {
+type postPaymentProps = {
   title: string;
   amount: number;
-}): Promise<{ client_secret: string }> =>
-  axios
-    .post(`${BASE_PATH_API}/v2/payment`, { title, amount })
-    .then((response) => response.data)
-    .catch((error) => {
-      console.error("Error fetching data:", error);
-      throw error;
-    });
+};
+
+type postPaymentResponse = { client_secret: string };
+
+export const postPayment = ({
+  title,
+  amount,
+}: postPaymentProps): Promise<postPaymentResponse> =>
+  api.post(`/v2/payment`, { title, amount });

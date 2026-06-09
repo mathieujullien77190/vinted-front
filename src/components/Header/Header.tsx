@@ -23,6 +23,9 @@ export const Header = ({ children }: HeaderProps) => {
   const handleLogout = () => {
     logout();
     setUsername(undefined);
+    window.setTimeout(() => {
+      navigate(ROUTES.home);
+    }, 1000);
   };
 
   const handlePublish = () => {
