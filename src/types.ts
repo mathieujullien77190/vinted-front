@@ -51,3 +51,9 @@ export type Owner = {
     avatar: Image;
   };
 };
+
+export type SearchParams = {
+  title?: string;
+  priceMin?: number;
+  priceMax?: number;
+};

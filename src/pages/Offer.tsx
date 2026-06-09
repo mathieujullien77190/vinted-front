@@ -7,6 +7,7 @@ import { useFetch } from "@/hooks/useFetch";
 import { getOffer } from "@/services/getOffer";
 import type { Offer as OfferType } from "@/types";
 import { useParams } from "react-router-dom";
+import Header from "@/components/Header";
 
 export const Offer = () => {
   const { id } = useParams<{ id: string }>();
@@ -16,10 +17,13 @@ export const Offer = () => {
   const { data } = useFetch<OfferType>(getOfferWithId);
 
   return (
-    <div className={`bg-canvas h-[calc(100vh-${HEIGHT_HEADER}px)]`}>
-      <Wrapper className="p-10">
-        {data ? <FullOffer {...formatFullOffer(data)} /> : <></>}
-      </Wrapper>
-    </div>
+    <>
+      <Header />
+      <div className={`bg-canvas h-[calc(100vh-${HEIGHT_HEADER}px)]`}>
+        <Wrapper className="p-10">
+          {data ? <FullOffer {...formatFullOffer(data)} /> : <></>}
+        </Wrapper>
+      </div>
+    </>
   );
 };
