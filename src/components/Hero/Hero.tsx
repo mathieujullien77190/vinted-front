@@ -1,6 +1,12 @@
+import { ROUTES } from "@/constants";
 import { cn } from "@/helpers/cn";
+import { useNavigate } from "react-router-dom";
 
 export const Hero = () => {
+  const navigate = useNavigate();
+  const handlePublish = () => {
+    navigate(ROUTES.publish);
+  };
   return (
     <div
       className={cn(
@@ -18,6 +24,7 @@ export const Hero = () => {
             "button",
             "w-fit text-white bg-lagoon-500 text-sm py-2 px-4",
           )}
+          onClick={handlePublish}
         >
           Commencer à vendre
         </button>

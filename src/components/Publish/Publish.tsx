@@ -19,13 +19,12 @@ export const Publish = () => {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
+
     if (offer?.pictures) {
       offer.pictures.forEach((picture) => {
         formData.append("picture", picture);
       });
     }
-
-    console.log(Object.fromEntries(formData.entries()));
 
     setError("");
     postOffer(formData)

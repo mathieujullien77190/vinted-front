@@ -17,6 +17,7 @@ export const formatLightOffer = (data: Offer): LightOffer => {
       : undefined,
     price: data.product_price,
     details: data.product_details
+      .filter((item) => Object.keys(item).length > 0)
       .map((item) => {
         const extract = Object.entries(item);
         return {

@@ -3,6 +3,9 @@ import { toPrice } from "@/helpers/formatters";
 import type { FullOfferProps } from "./types";
 import User from "@/components/User";
 
+import { useState } from "react";
+import { CheckoutForm, StripProvider } from "../Stripe";
+
 export const FullOffer = ({
   name,
   picture,
@@ -11,36 +14,54 @@ export const FullOffer = ({
   description,
   user,
 }: FullOfferProps) => {
+  const [showPayement, setShowPayement] = useState<boolean>(false);
+
   return (
-    <article className="flex justify-between">
-      <img
-        src={picture}
-        alt={name}
-        className="h-150 max-w-1/2 rounded object-cover"
-      />
-      <div className="flex flex-col bg-white p-8 w-105 gap-8 rounded">
-        <div className="text-xl">{toPrice(price)}</div>
-        <ul className="flex flex-col w-full">
-          {details.map(({ key, value }) => (
-            <li key={crypto.randomUUID()} className="flex">
-              <span className="flex w-50 text-sm text-ink-light">{key}</span>
-              <span className="flex text-sm text-ink font-bold">{value}</span>
-            </li>
-          ))}
-        </ul>
-        <hr className="border-gray-300" />
-        <div className="text-sm font-bold">{name}</div>
-        <div className="text-sm ">{description}</div>
-        <User {...user} format="big" />
-        <button
-          className={cn(
-            "button",
-            "w-full text-white bg-lagoon-500 text-sm py-2 px-4",
-          )}
-        >
-          Acheter
-        </button>
-      </div>
-    </article>
+    <>
+      <StripProvider>
+        <CheckoutForm
+          title={name}
+          amount={price}
+          show={showPayement}
+          onClose={() => {
+            setShowPayement(false);
+          }}
+        />
+      </StripProvider>
+
+      <article className="flex justify-between">
+        <img
+          src={picture}
+          alt={name}
+          className="h-150 max-w-1/2 rounded object-cover"
+        />
+        <div className="flex flex-col bg-white p-8 w-105 gap-8 rounded">
+          <div className="text-xl">{toPrice(price)}</div>
+          <ul className="flex flex-col w-full">
+            {details.map(({ key, value }) => (
+              <li key={crypto.randomUUID()} className="flex">
+                <span className="flex w-50 text-sm text-ink-light">{key}</span>
+                <span className="flex text-sm text-ink font-bold">{value}</span>
+              </li>
+            ))}
+          </ul>
+          <hr className="border-gray-300" />
+          <div className="text-sm font-bold">{name}</div>
+          <div className="text-sm ">{description}</div>
+          <User {...user} format="big" />
+          <button
+            className={cn(
+              "button",
+              "w-full text-white bg-lagoon-500 text-sm py-2 px-4",
+            )}
+            onClick={() => {
+              setShowPayement(true);
+            }}
+          >
+            Acheter
+          </button>
+        </div>
+      </article>
+    </>
   );
 };
