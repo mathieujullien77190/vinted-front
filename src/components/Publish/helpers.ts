@@ -4,7 +4,7 @@ import type { OfferToAdd } from "./types";
 
 type ConfigKey = keyof typeof CONFIG;
 
-export const extractProps = (
+export const extractFieldProps = (
   key: ConfigKey,
   state: [OfferToAdd, Dispatch<SetStateAction<OfferToAdd>>],
 ) => {
