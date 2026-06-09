@@ -1,11 +1,3 @@
-import type { SearchParams } from "@/types";
+import type { PropsWithChildren } from "react";
 
-export type generateSearchParamProps = {
-  params: SearchParams;
-  pattern: "pricePattern" | "text";
-};
-
-export type HeaderProps = {
-  showSearch?: boolean;
-  onSearchChange?: (value: generateSearchParamProps) => void;
-};
+export type HeaderProps = PropsWithChildren;

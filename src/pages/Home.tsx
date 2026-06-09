@@ -1,7 +1,8 @@
-import Header, { type generateSearchParamProps } from "@/components/Header";
+import Header from "@/components/Header";
 
 import Hero from "@/components/Hero";
 import ListOffers from "@/components/ListOffers";
+import Search from "@/components/Search";
 import { formatLightOffer } from "@/helpers/formatters";
 import { useFetch } from "@/hooks/useFetch";
 import { getOffers } from "@/services/getOffers";
@@ -26,12 +27,9 @@ export const Home = () => {
 
   return (
     <>
-      <Header
-        showSearch={true}
-        onSearchChange={(value: generateSearchParamProps) => {
-          setSearchParams(value.params);
-        }}
-      />
+      <Header>
+        <Search onChange={setSearchParams} />
+      </Header>
       <Hero />
       <ListOffers offers={offers} />
     </>
