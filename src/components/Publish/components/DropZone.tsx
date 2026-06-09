@@ -28,8 +28,6 @@ export const DropZone = ({ label, name, files, onChange }: DropZoneProps) => {
     },
   });
 
-  console.log(files);
-
   const thumbs = files.map((file) => (
     <div key={file.name} className="shrink-0">
       <div
@@ -57,7 +55,10 @@ export const DropZone = ({ label, name, files, onChange }: DropZoneProps) => {
         className="w-full flex justify-center items-center h-50 border-2 border-dashed border-ink-light cursor-pointer hover:border-ink-muted"
       >
         <input {...getInputProps()} name={name} id={name} />
-        <button className={cn("button", "text-lagoon-500 bg-white")}>
+        <button
+          type="button"
+          className={cn("button", "text-lagoon-500 bg-white")}
+        >
           {label}
         </button>
       </div>
