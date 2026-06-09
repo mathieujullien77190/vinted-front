@@ -39,8 +39,8 @@ export const CheckoutForm = ({
       });
 
       setIsComplete(true);
-    } catch (error: any) {
-      setErrorMessage(error?.message ?? "unknown message");
+    } catch (error: unknown) {
+      setErrorMessage(error instanceof Error ? error.message : "unknown error");
     }
 
     setIsLoading(false);
